@@ -19,6 +19,9 @@
   {% if success %}
   <div class="alert alert-success mt-2">Сообщение отправлено!</div>
   {% endif %}
+{% if error %}
+<div class="alert alert-danger mt-2">{{ error }}</div>
+{% endif %}
 </form>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
