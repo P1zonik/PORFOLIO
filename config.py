@@ -1,6 +1,5 @@
-import os
 
-SECRET_KEY = 'your-secret-key'  # Например, сгенерируй на https://djecrety.ir/
+SECRET_KEY = 'your-secret-key'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 UPLOAD_FOLDER = 'static/portfolio'
