@@ -66,11 +66,13 @@ def contact():
             'secret': app.config['RECAPTCHA_SECRET_KEY'],
             'response': recaptcha_response
         }
-        if not requests.post(
+        r = requests.post(
             'https://www.google.com/recaptcha/api/siteverify',
             data=payload
-        ).json().get('success'):
-            return "Ошибка CAPTCHA", 400
+        )
+        result = r.json()
+        if not result.get('success'):
+            return render_template('contact.html', error='Ошибка CAPTCHA. Попробуйте ещё раз.')
 
         # ─── сохраняем сообщение ───
         message = Message(
@@ -83,8 +85,6 @@ def contact():
         return render_template('contact.html', success=True)
 
     return render_template('contact.html')
-
-
 @app.route('/upload', methods=['POST'])
 def upload():
     file = request.files.get('file')

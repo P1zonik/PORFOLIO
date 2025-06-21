@@ -2,7 +2,13 @@
 {% block title %}Контакты{% endblock %}
 {% block content %}
 <h2>Свяжитесь со мной</h2>
-<form method="post">
+<form method="post"><button type="submit" class="btn btn-primary">Отправить</button>
+{% if success %}
+<div class="alert alert-success mt-2">Сообщение отправлено!</div>
+{% endif %}
+{% if error %}
+<div class="alert alert-danger mt-2">{{ error }}</div>
+{% endif %}
   <input name="name" required class="form-control mb-2" placeholder="Имя">
   <input name="email" required class="form-control mb-2" placeholder="Email">
   <textarea name="message" required class="form-control mb-2" placeholder="Сообщение"></textarea>
