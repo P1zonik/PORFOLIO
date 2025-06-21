@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Портфолио{% endblock %}
+{% block content %}
+<h2>Дизайн</h2>
+<div class="grid-gallery">
+  {% for image in design %}
+    <img src="{{ url_for('static', filename='portfolio/design/' + image) }}" class="img-fluid fade-in" loading="lazy">
+  {% endfor %}
+</div>
+<h2 class="mt-4">Фотография</h2>
+<div class="grid-gallery">
+  {% for image in photo %}
+    <img src="{{ url_for('static', filename='portfolio/photo/' + image) }}" class="img-fluid fade-in" loading="lazy">
+  {% endfor %}
+</div>
+{% endblock %}

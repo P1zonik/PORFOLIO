@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Контакты{% endblock %}
+{% block content %}
+<h2>Свяжитесь со мной</h2>
+<form method="post">
+  <input name="name" required class="form-control mb-2" placeholder="Имя">
+  <input name="email" required class="form-control mb-2" placeholder="Email">
+  <textarea name="message" required class="form-control mb-2" placeholder="Сообщение"></textarea>
+
+  <!-- Капча -->
+  <div class="g-recaptcha mb-2" data-sitekey="6LfdoGcrAAAAABb7Ron1MXV7Yym3KPgLS2adqHMP"></div>
+
+  <button type="submit" class="btn btn-primary">Отправить</button>
+  {% if success %}
+  <div class="alert alert-success mt-2">Сообщение отправлено!</div>
+  {% endif %}
+</form>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock %}
